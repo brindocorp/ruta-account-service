@@ -1,0 +1,34 @@
+service: account
+version: one
+runtime: php
+env: flex
+api_version: 1
+ threadsafe: true
+
+automatic_scaling:
+  min_idle_instances: 2
+  max_pending_latency: 1s
+
+handlers:
+- url: /favicon\.ico
+  static_files: public/favicon.ico
+  upload: public/favicon\.ico
+
+- url: /.*
+  script: public/index.php
+
+env_variables:
+  APP_ENV: production
+  APP_DEBUG: false
+  APP_KEY: bb7d6317836b2a811568b427b5bc2a34
+  APP_LOCALE: en
+  APP_FALLBACK_LOCALE: en
+  DB_CONNECTION: mysql
+  DB_HOST: localhost
+  DB_PORT: 3306
+  DB_DATABASE0: homestead
+  DB_USERNAME: homestead
+  DB_PASSWORD: secret
+  CACHE_DRIVER: file
+  SESSION_DRIVER: file
+  QUEUE_DRIVER: sync
