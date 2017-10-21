@@ -2,8 +2,12 @@ service: account
 version: one
 runtime: php
 env: flex
-
 api_version: 1
+    
+ 
+runtime_config:
+  document_root: web
+ 
  threadsafe: true
 
 automatic_scaling:
